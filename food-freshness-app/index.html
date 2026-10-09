@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Based Food Freshness Prediction</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between">
+
+  <!-- Navigation Bar -->
+  <header class="bg-white shadow-sm border-b sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <span class="text-2xl">🍏</span>
+        <h1 class="font-bold text-lg text-emerald-600" data-i18n="projectName">AI Food Freshness</h1>
+      </div>
+      
+      <div class="flex items-center space-x-4">
+        <select id="langSelect" class="bg-slate-100 border border-slate-300 rounded-lg px-3 py-1.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          <option value="en-GB">English (UK)</option>
+          <option value="hi">हिन्दी (Hindi)</option>
+          <option value="kn">ಕನ್ನಡ (Kannada)</option>
+          <option value="ta">தமிழ் (Tamil)</option>
+          <option value="ur">اردو (Urdu)</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="max-w-4xl mx-auto px-4 py-8 flex-grow w-full">
+    
+    <!-- Hero Banner -->
+    <div class="text-center mb-10">
+      <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-3 py-1 rounded-full font-semibold mb-3" data-i18n="heroBadge">College Research Project</span>
+      <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl mb-3" data-i18n="heroTitle">AI-Based Food Freshness Prediction</h2>
+      <p class="text-slate-600 max-w-2xl mx-auto" data-i18n="heroSubtitle">A web-based AI system that predicts food freshness from uploaded food images.</p>
+    </div>
+
+    <!-- Upload Card -->
+    <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 mb-8">
+      <h3 class="text-lg font-bold mb-4 text-slate-900" data-i18n="uploadTitle">Upload Your Food Image</h3>
+      
+      <div class="drop-zone p-8 rounded-xl text-center cursor-pointer flex flex-col items-center justify-center bg-slate-50 mb-4">
+        <svg class="w-12 h-12 text-slate-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+        <p class="text-slate-600 mb-4 text-sm" data-i18n="uploadDrop">Drop your food image here or click to browse</p>
+        <input type="file" id="fileInput" accept="image/*" class="hidden">
+        <button id="uploadBtn" class="bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-5 py-2.5 rounded-lg text-sm transition" data-i18n="uploadBtn">Choose File</button>
+      </div>
+
+      <!-- Preview Section -->
+      <div id="imagePreview" class="hidden mb-6 text-center">
+        <img id="previewImg" src="" alt="Preview" class="max-h-64 mx-auto rounded-lg border">
+      </div>
+
+      <button id="analyseBtn" class="hidden w-full bg-slate-900 hover:bg-slate-800 text-white font-medium py-3 rounded-lg text-sm transition" data-i18n="uploadAnalyse">Analyse Freshness</button>
+    </div>
+
+    <!-- Results Panel -->
+    <div id="resultsCard" class="hidden bg-emerald-50 border border-emerald-200 p-6 rounded-2xl">
+      <h4 class="font-bold text-emerald-900 text-lg mb-4">Analysis Result</h4>
+      <div class="space-y-2 text-sm text-emerald-950">
+        <p><span class="font-semibold" data-i18n="resCategory">Category:</span> Fruits & Vegetables</p>
+        <p><span class="font-semibold" data-i18n="resPrediction">Prediction:</span> <span class="bg-emerald-600 text-white px-2 py-0.5 rounded text-xs" data-i18n="resStatusFresh">Fresh</span></p>
+        <p><span class="font-semibold" data-i18n="resScore">Freshness Score:</span> 94.2%</p>
+      </div>
+      <p class="text-xs text-slate-500 mt-4 border-t border-emerald-200/60 pt-3" data-i18n="resDisclaimer">Note: AI visual analysis only. Please exercise visual and olfactory judgement before consuming.</p>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-6">
+    <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p data-i18n="institutionName">Freshness - Hasanath Academy of Management Studies</p>
+      <p data-i18n="footerCopyright">© 2026 AI-Based Food Freshness Prediction · College Research Project</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/translations.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
