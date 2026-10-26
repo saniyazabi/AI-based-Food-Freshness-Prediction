@@ -1,5 +1,23 @@
 # API Documentation
 
+## Base URL
+
+```text
+http://localhost:5000
+```
+
+## Health Check
+
+### Check Backend
+**GET** `/`
+
+Checks whether the backend server is running.
+
+### Check Database
+**GET** `/test-db`
+
+Checks the database connection.
+
 ## Authentication
 
 ### Register User
@@ -7,29 +25,67 @@
 
 Creates a new user account.
 
+### Request Body
+```json
+{
+  "name": "Test User",
+  "email": "user@example.com",
+  "password": "your_password"
+}
+```
+
 ### User Login
 **POST** `/api/auth/login`
 
 Authenticates a registered user.
+
+### Request Body
+```json
+{
+  "email": "user@example.com",
+  "password": "your_password"
+}
+```
 
 ## Food Freshness Predictions
 
 ### Create Prediction
 **POST** `/api/predictions`
 
-Uploads/records a food freshness prediction.
+Saves a food freshness prediction record.
+
+### Request Body
+```json
+{
+  "user_id": 4,
+  "image_name": "tomato.jpg",
+  "category": "Vegetables",
+  "condition_result": "Fresh",
+  "freshness_score": 92,
+  "prediction_result": "Fresh"
+}
+```
+
+Required fields: `image_name` and `category`.
 
 ### Get All Predictions
 **GET** `/api/predictions`
 
-Retrieves prediction records.
+Retrieves all saved prediction records.
 
-### Get Prediction by ID
-**GET** `/api/predictions/:id`
+### Get Predictions by User
+**GET** `/api/predictions/user/:user_id`
 
-Retrieves one prediction by its ID.
+Retrieves prediction records for a specific user.
 
 ### Delete Prediction
-**DELETE** `/api/predictions/:id`
+**DELETE** `/api/predictions/:prediction_id`
 
-Deletes a prediction record.
+Deletes a prediction record by its ID.
+
+## Notes
+
+- Send JSON request bodies with `Content-Type: application/json`.
+- The backend runs locally on port `5000` during development.
+- The create-prediction endpoint records prediction data; this does not mean a real AI model is integrated.
+
